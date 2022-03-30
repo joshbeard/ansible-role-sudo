@@ -1,0 +1,20 @@
+- name: Sudo | OS Variables
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+        - '{{ansible_system}}.yml'
+        - default.yaml
+      paths:
+        - 'vars'
+  when: lookup_default_vars is true
+
+- name: 'sudoers files'
+  template:
+    src: sudoers.j2
+    dest: "{{ sudoers_dir }}/{{ item.key }}"
+    validate: 'visudo -cf %s'
+    mode: 0440
+  loop: "{{ sudoers_files | dict2items }}"

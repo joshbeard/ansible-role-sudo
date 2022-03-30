@@ -1,0 +1,3 @@
+# Defaults for FreeBSD
+---
+sudoers_dir: /usr/local/etc/sudoers.d

@@ -1,0 +1,3 @@
+# Defaults for Linux
+---
+sudoers_dir: /etc/sudoers.d

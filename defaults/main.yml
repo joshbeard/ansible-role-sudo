@@ -1,0 +1,10 @@
+---
+# Refer to the variable files under 'vars/' for OS-specific defaults.
+#
+# Toggles looking up the OS-specific defaults from the 'vars/' directory.
+# This requires facts to be available. It can be disabled if the path to
+# the sudoers.d directory is specified.
+lookup_default_vars: true
+
+# Absolute path to the 'sudoers.d' directory
+sudoers_dir: /etc/sudoers.d
