@@ -1,4 +1,4 @@
-# Defaults for Linux
+# Defaults for OpenBSD
 ---
 sudoers_file: /etc/sudoers
 sudoers_dir: /etc/sudoers.d

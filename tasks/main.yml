@@ -11,8 +11,22 @@
         - 'vars'
   when: lookup_default_vars is true
 
+- name: 'sudoers.d directory'
+  ansible.builtin.file:
+    path: "{{ sudoers_dir }}"
+    state: directory
+    mode: 0755
+    owner: 0
+    group: 0
+
+- name: Make sure group wheel is not in the sudoers configuration
+  ansible.builtin.lineinfile:
+    path: "{{ sudoers_file }}"
+    state: present
+    line: "#includedir {{ sudoers_dir }}"
+
 - name: 'sudoers files'
-  template:
+  ansible.builtin.template:
     src: sudoers.j2
     dest: "{{ sudoers_dir }}/{{ item.key }}"
     validate: 'visudo -cf %s'

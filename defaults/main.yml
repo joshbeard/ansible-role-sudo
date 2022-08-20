@@ -6,5 +6,8 @@
 # the sudoers.d directory is specified.
 lookup_default_vars: true
 
+# Absolute path to the 'sudoers' file
+sudoers_file: /etc/sudoers
+
 # Absolute path to the 'sudoers.d' directory
 sudoers_dir: /etc/sudoers.d
